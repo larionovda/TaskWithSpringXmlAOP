@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+ 		http://www.springframework.org/schema/beans
+ 		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+http://www.springframework.org/schema/beans">
+
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:valueSequence.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean name="orderRepository" class="org.shop.repository.map.OrderMapRepository">
+        <property name="sequence" value="${init.sequence}"/>
+    </bean>
+
+    <bean name="productRepository" class="org.shop.repository.map.ProductMapRepository"/>
+
+    <bean name="proposalRepository" class="org.shop.repository.map.ProposalMapRepository"/>
+
+    <bean name="sellerRepository" class="org.shop.repository.map.SellerMapRepository"/>
+
+    <bean name="itemRepository" class="org.shop.repository.map.ItemMapRepository"/>
+
+    <bean name="userRepository" class="org.shop.repository.map."> </bean>
+
+</beans>

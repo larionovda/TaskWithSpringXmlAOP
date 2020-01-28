@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+ 		http://www.springframework.org/schema/beans
+ 		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+http://www.springframework.org/schema/beans">
+
+
+    <bean name="productInitializer" class="org.shop.ProductInitializer">
+        <constructor-arg ref="productService"/>
+    </bean>
+
+    <bean name="dataInitializer" class="org.shop.DataInitializer" init-method="initData"/>
+
+    <bean name="sellerInitializer" class="org.shop.SellerInitializer">
+        <property name="sellerNames">
+            <map>
+                <entry key="1L" value="Alex"/>
+                <entry key="2L" value="Roma"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean name="proposalInitializer" class="org.shop.ProposalInitializer" autowire="byName"/>
+
+
+</beans>
