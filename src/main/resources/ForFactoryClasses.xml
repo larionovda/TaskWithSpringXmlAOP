@@ -8,6 +8,7 @@ http://www.springframework.org/schema/beans">
 
 
 
-
+    <bean name="userRepository" class="org.shop.repository.factory.UserRepositoryFactory"
+          factory-method="createUserRepository"/>
 
 </beans>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+ 		http://www.springframework.org/schema/beans
+ 		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+http://www.springframework.org/schema/beans">
+
+    <bean name="productService" class="org.shop.api.impl.ProductServiceImpl">
+        <constructor-arg ref="productRepository"/>
+    </bean>
+
+    <bean name="sellerService" class="org.shop.api.impl.SellerServiceImpl" autowire="byType"/>
+
+    <bean name="proposalService" class="org.shop.api.impl.ProposalServiceImpl" autowire="byName">
+        <constructor-arg ref="proposalRepository"/>
+    </bean>
+
+    <bean name="itemService" class="org.shop.api.impl.ItemServiceImpl">
+        <constructor-arg ref="itemRepository"/>
+    </bean>
+
+    <bean name="orderService" class="org.shop.api.impl.OrderServiceImpl" autowire="byName"/>
+
+    <bean name="userService" class="org.shop.api.impl.UserServiceImpl"></bean>
+
+</beans>
